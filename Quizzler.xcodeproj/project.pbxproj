@@ -14,6 +14,9 @@
 		4A10D4842AF7F2E90077E2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A10D4822AF7F2E90077E2CD /* LaunchScreen.storyboard */; };
 		4A10D48C2AF7F94F0077E2CD /* QuizzlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */; };
 		4A10D48E2AF7F9630077E2CD /* QuizzlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */; };
+		4A10D4952AF80CD00077E2CD /* TrueFalseQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D4942AF80CD00077E2CD /* TrueFalseQuestion.swift */; };
+		4A10D4992AF80D160077E2CD /* MultipleChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D4982AF80D160077E2CD /* MultipleChoiceQuestion.swift */; };
+		4A10D49B2AF80F820077E2CD /* ProtocolQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D49A2AF80F820077E2CD /* ProtocolQuestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		4A10D4852AF7F2E90077E2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerView.swift; sourceTree = "<group>"; };
 		4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerModel.swift; sourceTree = "<group>"; };
+		4A10D4942AF80CD00077E2CD /* TrueFalseQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseQuestion.swift; sourceTree = "<group>"; };
+		4A10D4982AF80D160077E2CD /* MultipleChoiceQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestion.swift; sourceTree = "<group>"; };
+		4A10D49A2AF80F820077E2CD /* ProtocolQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolQuestions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +85,38 @@
 		4A10D4902AF7F9AE0077E2CD /* MVC */ = {
 			isa = PBXGroup;
 			children = (
-				4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */,
-				4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */,
-				4A10D47B2AF7F2E70077E2CD /* QuizzlerController.swift */,
+				4A10D4932AF80CAF0077E2CD /* Model */,
+				4A10D4962AF80CE70077E2CD /* View */,
+				4A10D4972AF80CF70077E2CD /* Controller */,
 			);
 			path = MVC;
+			sourceTree = "<group>";
+		};
+		4A10D4932AF80CAF0077E2CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A10D49A2AF80F820077E2CD /* ProtocolQuestions.swift */,
+				4A10D4942AF80CD00077E2CD /* TrueFalseQuestion.swift */,
+				4A10D4982AF80D160077E2CD /* MultipleChoiceQuestion.swift */,
+				4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A10D4962AF80CE70077E2CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A10D4972AF80CF70077E2CD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A10D47B2AF7F2E70077E2CD /* QuizzlerController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A10D4992AF80D160077E2CD /* MultipleChoiceQuestion.swift in Sources */,
 				4A10D47C2AF7F2E70077E2CD /* QuizzlerController.swift in Sources */,
+				4A10D4952AF80CD00077E2CD /* TrueFalseQuestion.swift in Sources */,
 				4A10D48E2AF7F9630077E2CD /* QuizzlerModel.swift in Sources */,
 				4A10D4782AF7F2E70077E2CD /* AppDelegate.swift in Sources */,
 				4A10D48C2AF7F94F0077E2CD /* QuizzlerView.swift in Sources */,
 				4A10D47A2AF7F2E70077E2CD /* SceneDelegate.swift in Sources */,
+				4A10D49B2AF80F820077E2CD /* ProtocolQuestions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
