@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		4A10D4782AF7F2E70077E2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D4772AF7F2E70077E2CD /* AppDelegate.swift */; };
 		4A10D47A2AF7F2E70077E2CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D4792AF7F2E70077E2CD /* SceneDelegate.swift */; };
-		4A10D47C2AF7F2E70077E2CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D47B2AF7F2E70077E2CD /* ViewController.swift */; };
-		4A10D47F2AF7F2E70077E2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A10D47D2AF7F2E70077E2CD /* Main.storyboard */; };
+		4A10D47C2AF7F2E70077E2CD /* QuizzlerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D47B2AF7F2E70077E2CD /* QuizzlerController.swift */; };
 		4A10D4812AF7F2E90077E2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A10D4802AF7F2E90077E2CD /* Assets.xcassets */; };
 		4A10D4842AF7F2E90077E2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A10D4822AF7F2E90077E2CD /* LaunchScreen.storyboard */; };
+		4A10D48C2AF7F94F0077E2CD /* QuizzlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */; };
+		4A10D48E2AF7F9630077E2CD /* QuizzlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A10D4742AF7F2E70077E2CD /* Quizzler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A10D4772AF7F2E70077E2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A10D4792AF7F2E70077E2CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4A10D47B2AF7F2E70077E2CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4A10D47E2AF7F2E70077E2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A10D47B2AF7F2E70077E2CD /* QuizzlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerController.swift; sourceTree = "<group>"; };
 		4A10D4802AF7F2E90077E2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A10D4832AF7F2E90077E2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A10D4852AF7F2E90077E2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerView.swift; sourceTree = "<group>"; };
+		4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		4A10D4762AF7F2E70077E2CD /* Quizzler */ = {
 			isa = PBXGroup;
 			children = (
-				4A10D4772AF7F2E70077E2CD /* AppDelegate.swift */,
-				4A10D4792AF7F2E70077E2CD /* SceneDelegate.swift */,
-				4A10D47B2AF7F2E70077E2CD /* ViewController.swift */,
-				4A10D47D2AF7F2E70077E2CD /* Main.storyboard */,
+				4A10D48F2AF7F99F0077E2CD /* AppDelegate */,
+				4A10D4902AF7F9AE0077E2CD /* MVC */,
 				4A10D4802AF7F2E90077E2CD /* Assets.xcassets */,
 				4A10D4822AF7F2E90077E2CD /* LaunchScreen.storyboard */,
 				4A10D4852AF7F2E90077E2CD /* Info.plist */,
 			);
 			path = Quizzler;
+			sourceTree = "<group>";
+		};
+		4A10D48F2AF7F99F0077E2CD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4A10D4772AF7F2E70077E2CD /* AppDelegate.swift */,
+				4A10D4792AF7F2E70077E2CD /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4A10D4902AF7F9AE0077E2CD /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				4A10D48D2AF7F9630077E2CD /* QuizzlerModel.swift */,
+				4A10D48B2AF7F94F0077E2CD /* QuizzlerView.swift */,
+				4A10D47B2AF7F2E70077E2CD /* QuizzlerController.swift */,
+			);
+			path = MVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +146,6 @@
 			files = (
 				4A10D4842AF7F2E90077E2CD /* LaunchScreen.storyboard in Resources */,
 				4A10D4812AF7F2E90077E2CD /* Assets.xcassets in Resources */,
-				4A10D47F2AF7F2E70077E2CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A10D47C2AF7F2E70077E2CD /* ViewController.swift in Sources */,
+				4A10D47C2AF7F2E70077E2CD /* QuizzlerController.swift in Sources */,
+				4A10D48E2AF7F9630077E2CD /* QuizzlerModel.swift in Sources */,
 				4A10D4782AF7F2E70077E2CD /* AppDelegate.swift in Sources */,
+				4A10D48C2AF7F94F0077E2CD /* QuizzlerView.swift in Sources */,
 				4A10D47A2AF7F2E70077E2CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4A10D47D2AF7F2E70077E2CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A10D47E2AF7F2E70077E2CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4A10D4822AF7F2E90077E2CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +309,6 @@
 				INFOPLIST_FILE = Quizzler/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +336,6 @@
 				INFOPLIST_FILE = Quizzler/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

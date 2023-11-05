@@ -14,6 +14,5 @@ class QuizzlerViewController: UIViewController {
         view.backgroundColor = .cyan
     }
 
-
 }
 
