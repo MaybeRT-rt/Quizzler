@@ -64,27 +64,30 @@ class QuizzlerViewController: UIViewController {
         quizzlerView.falseButton.backgroundColor = UIColor.clear
         
     }
+
 }
 
 extension QuizzlerViewController: QuizzlerDelegate {
+    
     func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.titleLabel?.text ?? ""
-        let currentAnswer = quizzlerModel.getCorrectAnswer()
-        let userGotItRight = quizzlerModel.checkAnswer(userAnswer: currentAnswer)
-        
+        let correctAnswer = quizzlerModel.currentQuestion().getCorrectAnswer()
+        let userGotItRight = quizzlerModel.checkAnswer(userAnswer: userAnswer)
+
+
         if userGotItRight {
             sender.backgroundColor = UIColor.green
             quizzlerModel.score += 1
-            quizzlerView.scoreLabel.text = "Score: \(quizzlerModel.trueFalseQuestions.count)/\(String(quizzlerModel.score))"
         } else {
             sender.backgroundColor = UIColor.red
         }
-        
-        quizzlerModel.nextQuestion()  
+
+        quizzlerModel.nextQuestion()
         let progress = Float(quizzlerModel.questionNumber) / Float(quizzlerModel.trueFalseQuestions.count)
         quizzlerView.progressView.progress = progress
+        quizzlerView.scoreLabel.text = "Score: \(quizzlerModel.getScore())/\(quizzlerModel.trueFalseQuestions.count)"
         print(progress)
-              
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
             self.displayQuestion()
         }

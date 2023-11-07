@@ -33,17 +33,22 @@ struct QuizzlerModel {
     ]
     
     
-    func randomQuestion() -> TrueFalseQuestion {
-        let randomIndex = Int.random(in: 0..<trueFalseQuestions.count)
-        return trueFalseQuestions[randomIndex]
+//    func randomQuestion() -> TrueFalseQuestion {
+//        let randomIndex = Int.random(in: 0..<trueFalseQuestions.count)
+//        return trueFalseQuestions[randomIndex]
+//    }
+//    
+    
+    func currentQuestion() -> TrueFalseQuestion {
+        return trueFalseQuestions[questionNumber]
     }
     
     func getQuestionText() -> String {
-        return randomQuestion().getQuestionText()
+        return currentQuestion().getQuestionText()
     }
     
     func getCorrectAnswer() -> String {
-        return randomQuestion().getCorrectAnswer()
+        return currentQuestion().getCorrectAnswer()
     }
     
     func getProgress() -> Float {
@@ -56,10 +61,19 @@ struct QuizzlerModel {
     }
     
     mutating func nextQuestion() {
-        questionNumber = (questionNumber + 1) % trueFalseQuestions.count
+        questionNumber += 1
+        if questionNumber >= trueFalseQuestions.count {
+            questionNumber = 0 // Сбросить счетчик вопросов после прохождения всех
+            resetScore() // Сбросить счетчик очков
+        }
     }
     
     func checkAnswer(userAnswer: String) -> Bool {
         return userAnswer == getCorrectAnswer()
+    }
+    
+    mutating func resetScore() {
+        questionNumber = 0
+        score = 0
     }
 }

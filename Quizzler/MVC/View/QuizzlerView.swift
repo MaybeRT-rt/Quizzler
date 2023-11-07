@@ -26,8 +26,8 @@ class QuizzlerView: UIView {
     
     lazy var scoreLabel: UILabel = {
         let element = UILabel()
-        element.text = "0"
-        element.font = .systemFont(ofSize: 30)
+        element.text = "Score: 0/12"
+        element.font = .systemFont(ofSize: 20)
         element.textColor = .white
         element.numberOfLines = 0
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +96,8 @@ class QuizzlerView: UIView {
         
         trueButton.setImage(UIImage(named: "Rectangle"), for: .normal)
         falseButton.setImage(UIImage(named: "Rectangle"), for: .normal)
+        trueButton.setTitle("True", for: .normal)
+        falseButton.setTitle("False", for: .normal)
         
         trueButton.addTarget(self, action: #selector(answerButtonPressed(_:)), for: .touchUpInside)
         falseButton.addTarget(self, action: #selector(answerButtonPressed(_:)), for: .touchUpInside)
