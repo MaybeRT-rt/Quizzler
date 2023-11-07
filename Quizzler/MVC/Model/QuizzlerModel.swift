@@ -12,6 +12,11 @@ struct QuizzlerModel {
     var questionNumber = 0
     var score = 0
     
+    enum QuestionType {
+        case trueFalse
+        case multipleChoice
+    }
+    
     let trueFalseQuestions: [TrueFalseQuestion] = [
         TrueFalseQuestion(q: "A slug's blood is green.", a: "True"),
         TrueFalseQuestion(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -27,54 +32,34 @@ struct QuizzlerModel {
         TrueFalseQuestion(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
     ]
     
-    let multipleChoiceQuestions: [MultipleChoiceQuestion] = [
-        MultipleChoiceQuestion(q: "Which is the largest organ in the human body?", a: ["Heart", "Skin", "Large Intestine"], correctAnswer: "Skin"),
-        MultipleChoiceQuestion(q: "Five dollars is worth how many nickels?", a: ["25", "50", "100"], correctAnswer: "100"),
-        MultipleChoiceQuestion(q: "What do the letters in the GMT time zone stand for?", a: ["Global Meridian Time", "Greenwich Mean Time", "General Median Time"], correctAnswer: "Greenwich Mean Time"),
-        MultipleChoiceQuestion(q: "What is the French word for 'hat'?", a: ["Chapeau", "Écharpe", "Bonnet"], correctAnswer: "Chapeau"),
-        MultipleChoiceQuestion(q: "In past times, what would a gentleman keep in his fob pocket?", a: ["Notebook", "Handkerchief", "Watch"], correctAnswer: "Watch"),
-        MultipleChoiceQuestion(q: "How would one say goodbye in Spanish?", a: ["Au Revoir", "Adiós", "Salir"], correctAnswer: "Adiós"),
-        MultipleChoiceQuestion(q: "Which of these colours is NOT featured in the logo for Google?", a: ["Green", "Orange", "Blue"], correctAnswer: "Orange"),
-        MultipleChoiceQuestion(q: "What alcoholic drink is made from molasses?", a: ["Rum", "Whisky", "Gin"], correctAnswer: "Rum"),
-        MultipleChoiceQuestion(q: "What type of animal was Harambe?", a: ["Panda", "Gorilla", "Crocodile"], correctAnswer: "Gorilla"),
-        MultipleChoiceQuestion(q: "Where is Tasmania located?", a: ["Indonesia", "Australia", "Scotland"], correctAnswer: "Australia")
-    ]
     
-    // выбор случайного из массивов
-    func randomQuestions() -> QuestionProtocol {
-        let randomType = Int.random(in: 0..<2)
-        if randomType == 0 {
-            let randomIndex = Int.random(in: 0..<trueFalseQuestions.count)
-            return trueFalseQuestions[randomIndex]
-        } else {
-            let randomIndex = Int.random(in: 0..<multipleChoiceQuestions.count)
-            return multipleChoiceQuestions[randomIndex]
-        }
+    func randomQuestion() -> TrueFalseQuestion {
+        let randomIndex = Int.random(in: 0..<trueFalseQuestions.count)
+        return trueFalseQuestions[randomIndex]
     }
     
-    // возвращает текст текущего случайно выбранного вопроса
-    func getQuestionsText() -> String {
-        return randomQuestions().getQuestionText()
+    func getQuestionText() -> String {
+        return randomQuestion().getQuestionText()
     }
     
-    // возвращает правильный ответ для текущего вопроса
     func getCorrectAnswer() -> String {
-        return randomQuestions().getCorrectAnswer()
+        return randomQuestion().getCorrectAnswer()
     }
     
-    //процент прогресса игры
-    func getProcess() -> Float {
-        return Float(questionNumber) / Float(trueFalseQuestions.count + multipleChoiceQuestions.count)
+    func getProgress() -> Float {
+        let progress = Float(questionNumber) / Float(trueFalseQuestions.count)
+        return progress
     }
     
-    // переход к след вопросу
+    func getScore() -> Int {
+        return score
+    }
+    
     mutating func nextQuestion() {
-        questionNumber = (questionNumber + 1) % (trueFalseQuestions.count + multipleChoiceQuestions.count)
+        questionNumber = (questionNumber + 1) % trueFalseQuestions.count
     }
     
-    // проверка ответа юзера с правильным
-    mutating func checkAnswer(userAnswer: String) -> Bool {
+    func checkAnswer(userAnswer: String) -> Bool {
         return userAnswer == getCorrectAnswer()
     }
 }
-
