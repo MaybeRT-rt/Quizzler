@@ -38,8 +38,6 @@ class QuizzlerViewController: UIViewController {
             
             quizzlerView.scoreLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             quizzlerView.scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-           
-            
             
             quizzlerView.questionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             quizzlerView.questionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70),
@@ -64,7 +62,7 @@ class QuizzlerViewController: UIViewController {
         quizzlerView.falseButton.backgroundColor = UIColor.clear
         
     }
-
+    
 }
 
 extension QuizzlerViewController: QuizzlerDelegate {
@@ -72,37 +70,36 @@ extension QuizzlerViewController: QuizzlerDelegate {
     func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.titleLabel?.text ?? ""
         let userGotItRight = quizzlerModel.checkAnswer(userAnswer: userAnswer)
-
+        
         if userGotItRight {
             handleCorrectAnswer(with: sender)
         } else {
             handleIncorrectAnswer(with: sender)
         }
-
+        
         quizzlerModel.nextQuestion()
         updateProgressAndScore()
         nextQuestionDisplay()
     }
-
+    
     func handleCorrectAnswer(with sender: UIButton) {
         sender.backgroundColor = UIColor.green
         quizzlerModel.score += 1
     }
-
+    
     func handleIncorrectAnswer(with sender: UIButton) {
         sender.backgroundColor = UIColor.red
     }
-
+    
     func updateProgressAndScore() {
         let progress = Float(quizzlerModel.questionNumber) / Float(quizzlerModel.trueFalseQuestions.count)
         quizzlerView.progressView.progress = progress
         quizzlerView.scoreLabel.text = "Score: \(quizzlerModel.getScore())/\(quizzlerModel.trueFalseQuestions.count)"
     }
-
+    
     func nextQuestionDisplay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
             self.displayQuestion()
         }
     }
-
 }
