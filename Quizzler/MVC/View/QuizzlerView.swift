@@ -20,6 +20,7 @@ class QuizzlerView: UIView {
         element.font = .systemFont(ofSize: 30)
         element.textColor = .white
         element.numberOfLines = 0
+        element.textAlignment = .center
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -48,25 +49,9 @@ class QuizzlerView: UIView {
         return element
     }()
     
-    let trueButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 20)
-        button.backgroundColor = UIColor(named: "Color")
-        button.layer.cornerRadius = 17
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isUserInteractionEnabled = true
-        return button
-    }()
+    lazy var trueButton: UIButton = createButton(withTitle: "True")
+    lazy var falseButton: UIButton = createButton(withTitle: "False")
     
-    let falseButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 20)
-        button.backgroundColor = UIColor(named: "Color")
-        button.layer.cornerRadius = 17
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isUserInteractionEnabled = true
-        return button
-    }()
     
     let trueFalseStackView: UIStackView = {
         let stack = UIStackView()
@@ -93,14 +78,19 @@ class QuizzlerView: UIView {
         addSubview(progressView)
         addSubview(trueFalseStackView)
         addSubview(footerImageView)
-        
-        trueButton.setImage(UIImage(named: "Rectangle"), for: .normal)
-        falseButton.setImage(UIImage(named: "Rectangle"), for: .normal)
-        trueButton.setTitle("True", for: .normal)
-        falseButton.setTitle("False", for: .normal)
-        
-        trueButton.addTarget(self, action: #selector(answerButtonPressed(_:)), for: .touchUpInside)
-        falseButton.addTarget(self, action: #selector(answerButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    private func createButton(withTitle title: String) -> UIButton {
+        let button = UIButton()
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.backgroundColor = UIColor(named: "Color")
+        button.layer.cornerRadius = 17
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = true
+        button.setImage(UIImage(named: "Rectangle"), for: .normal)
+        button.setTitle(title, for: .normal)
+        button.addTarget(self, action: #selector(answerButtonPressed(_:)), for: .touchUpInside)
+        return button
     }
     
     private func setupStackViews() {
